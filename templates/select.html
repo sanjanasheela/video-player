@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Select Files</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='/css/sss.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <div class="header-section">
+      <div class="header-container">
+        <h1>Select Photos and Audio File</h1>
+      </div>
+      <div class="header-container">
+        <p>You can choose the timing of each image to be on the video.</p>
+      </div>
+    </div>
+    <div class="innercont">
+      <form action="/user/{{ username }}/select" method="POST" enctype="multipart/form-data" id="fileForm">
+        <div class="flex-container">
+          <div class="list-section">
+            {% for file in files %}
+            <div class="list" onclick="toggleCheckbox(this)">
+              <img src="{{ url_for('static', path='uploads/' + username + '/' + file.filename) }}" alt="{{ file.filename }}" />
+              <input type="hidden" name="files" value="{{ file.filename }}">
+              <input type="text" name="times" placeholder="Timing in seconds" value="0">
+              <label for="time{{ loop.index }}">sec</label>
+              <input type="checkbox" id="checkbox{{ loop.index }}" name="checkbox{{ loop.index }}" value="{{ loop.index }}">
+            </div>
+            {% endfor %}
+          </div>
+          <div class="list-sectionaudio">
+            <div class="list-title">Choose Audio File</div>
+            <select name="audio" id="audio-select" required>
+              <option value="" disabled selected>Select an audio file</option>
+              {% for audio_file in audio_files %}
+                <option value="{{audio_file}}">{{ audio_file }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <button type="submit" id="select-button">Submit Selected</button>
+      </form>
+    </div>
+  </div>
+  <script src="{{ url_for('static', path='/js/select.js') }}"></script>
+</body>
+</html>

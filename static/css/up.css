@@ -1,0 +1,100 @@
+/* up.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('/static/img/login.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    width: 100%;
+    max-width: 20000px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 80%;
+}
+
+.innercont {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.header-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.header-container h1,
+.header-container p {
+    margin: 0;
+}
+
+.drop-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    width: 48%; /* Set to half of the container width */
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+
+.col {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.cloud-icon img {
+    width: auto;
+    height: auto;
+}
+
+.file-selector {
+    margin-top: 10px;
+}
+
+.file-selector-input {
+    display: none;
+}
+
+.list-section {
+    width: 48%; /* Set to half of the container width */
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+
+.list-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.list {
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 300px; /* Fixed height */
+    overflow-y: auto; /* Enable vertical scrolling */
+}

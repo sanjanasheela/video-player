@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview and Download Video</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/pre.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header-section">
+            <div class="header-container">
+                <h1>Final Video With Details</h1>
+            </div>
+        </div>
+
+        <!-- Message container -->
+        <div id="downloadMessage" style="display: none; color: black; font-size: 40px; text-align: center;">
+            Video has been downloaded successfully!
+        </div>
+
+        <div class="innercontent">
+            <div class="video-container">
+                <video width="800" controls id="myVideo">
+                    <source src="{{ url_for('static', path='videos/' + username + '/finaloutput_video.mp4') }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <a href="{{ url_for('static', path='videos/' + username + '/finaloutput_video.mp4') }}" 
+               download="{{ username }}_finaloutput_video.mp4" 
+               onclick="showDownloadMessage()">
+                <button>Download Video</button>
+            </a>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', path='/js/pre.js') }}"></script>
+    
+    <script>
+        function showDownloadMessage() {
+            const message = document.getElementById('downloadMessage');
+            message.style.display = 'block';
+
+            setTimeout(function() {
+                message.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

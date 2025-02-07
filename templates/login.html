@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/form.css') }}" />
+</head>
+<body>
+    <div id="container">
+        <div id="loginbox">
+            <form action="/login" method="post">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input class="inputbox" type="text" id="name" name="name" required />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input class="inputbox" type="email" id="email" name="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input class="inputbox" type="password" id="password" name="password" required />
+                </div>
+                <button type="submit" id="login-button">Login</button>
+            </form>
+            {% if error %}
+            <div id="confirmation-message" style="display: block; color: red">
+                <p>{{ error }}</p>
+            </div>
+            {% endif %}
+            <p>Don't have an account? <a href="/">Sign-up</a></p>
+        </div>
+    </div>
+</body>
+</html>
